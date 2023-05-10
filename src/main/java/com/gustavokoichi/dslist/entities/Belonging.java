@@ -12,32 +12,31 @@ public class Belonging {
 	
 	@EmbeddedId
 	private BelongingPK id = new BelongingPK();
-	
-	private Integer positiion;
-	
-	public Belonging() {
-	}
 
-	public Belonging(Game game, GameList list, Integer positiion) {
+	private Integer position;
+
+	public void setGame(Game game) {
 		id.setGame(game);
+	}
+
+	public Game getGame() {
+		return id.getGame();
+	}
+
+	public void setList(GameList list) {
 		id.setList(list);
-		this.positiion = positiion;
 	}
 
-	public BelongingPK getId() {
-		return id;
+	public GameList getList() {
+		return id.getList();
 	}
 
-	public void setId(BelongingPK id) {
-		this.id = id;
+	public Integer getPosition() {
+		return position;
 	}
 
-	public Integer getPositiion() {
-		return positiion;
-	}
-
-	public void setPositiion(Integer positiion) {
-		this.positiion = positiion;
+	public void setPosition(Integer position) {
+		this.position = position;
 	}
 
 	@Override
@@ -56,6 +55,4 @@ public class Belonging {
 		Belonging other = (Belonging) obj;
 		return Objects.equals(id, other.id);
 	}
-	
-	
 }
